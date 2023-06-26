@@ -1,22 +1,35 @@
+<!-- <%= %> (to output the value) is used to replace whatever is inside with the value of the variable -->
+<!-- <% %> (scriplet tags) is wrapped around any part of code which is not HTML( i.e. control flow JavaScript) -->
+<!-- <%- -%> (to add layouts) can be used to add the header and the footer sections so that for multiple routes we can use one template -->
 <%- include("header") -%>
 
   <div class="box" id="heading">
     <h1> <%= listTitle %> </h1>
   </div>
 
+  <!-- box includes our to-do list's complete list of items and functionality-->
   <div class="box">
+    <!-- looping through all the items inside newListItems -->
     <% newListItems.forEach(function(item){ %>
+      <!-- form for deleting an item -->
+      <!-- invokes app.post for '/delete' route -->
       <form action="/delete" method="post">
         <div class="item">
+          <!-- we are putting value in the checkbox field, so that we can know about the item on which checkbox was checked -->
           <input type="checkbox" name="checkbox" value="<%= item._id %>" onChange="this.form.submit()">
           <p><%=  item.name  %></p>
         </div>
+        <!-- to get hold of the listName(for the deletion purpose), the name will give access to the value(i.e. listTitle) -->
         <input type="hidden" name="listName" value="<%= listTitle %>"></input>
       </form>
     <% }); %>
-
+<!-- action="/" refers to the home route -->
+      <!-- form for adding a new item -->
+      <!-- invokes app.post for home('/') route -->
       <form class="item" action="/" method="post">
+        <!-- newIttem(from the name field) is taken from input field and the list(from the name field) is taken from submit button -->
         <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+        <!-- WE are assigning value to the button so that upon submission we know which list this list item should be added into -->
         <button type="submit" name="list" value="<%= listTitle %>">+</button>
       </form>
   </div>

@@ -1,9 +1,10 @@
 html {
-  background-color: #E4E9FD;
-  background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
+  background-color: #9DB2BF;
+  background-image: -webkit-linear-gradient(65deg,#526D82  50%,#DDE6ED  50%);
   min-height: 1000px;
   font-family: 'helvetica neue';
 }
+
 
 h1 {
   color: #fff;
@@ -18,11 +19,14 @@ h1 {
   box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
 }
 
+
 #heading {
-  background-color: #A683E3;
+  background-color: #27374D;
   text-align: center;
 }
+/* 85586F */
 
+/* every individual element's CSS  */
 .item {
   min-height: 70px;
   display: flex;
@@ -30,14 +34,17 @@ h1 {
   border-bottom: 1px solid #F1F1F1;
 }
 
+/* CSS applied to the last item */
 .item:last-child {
   border-bottom: 0;
 }
 
+/* targeteing the paragraph elements coming after the checked input */
 input:checked+p {
   text-decoration: line-through;
-  text-decoration-color: #A683E3;
+  text-decoration-color: #27374D;
 }
+/* 85586F */
 
 input[type="checkbox"] {
   margin: 20px;
@@ -62,7 +69,7 @@ button {
   width: 50px;
   border-radius: 50%;
   border-color: transparent;
-  background-color: #A683E3;
+  background-color: #27374D;
   color: #fff;
   font-size: 30px;
   padding-bottom: 6px;
@@ -82,9 +89,11 @@ input[type="text"] {
 
 input[type="text"]:focus {
   outline: none;
-  box-shadow: inset 0 -3px 0 0 #A683E3;
+  box-shadow: inset 0 -3px 0 0 #27374D;
 }
+/* 85586F */
 
+/* pseudo selector  */
 ::placeholder {
   color: grey;
   opacity: 1;
